@@ -45,7 +45,7 @@
       height: 100vh;
       max-height: 860px;
       overflow: hidden;
-      background: var(--green);
+      background: transparent;
       display: flex;
       align-items: center;
     }
@@ -498,7 +498,6 @@
       font-size: 13px;
       color: rgba(255, 255, 255, 0.3);
     }
-  
     .hero-bg-photo {
       position: absolute;
       inset: 0;
@@ -507,9 +506,21 @@
       object-fit: cover;
       object-position: center 30%;
       z-index: 0;
-      opacity: 0.22;
+      opacity: 1;
       pointer-events: none;
       user-select: none;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        135deg,
+        rgba(0,0,0,0.82) 0%,
+        rgba(0,0,0,0.6) 50%,
+        rgba(0,0,0,0.4) 100%
+      );
+      pointer-events: none;
     }
     </style>
 </head>
@@ -518,6 +529,7 @@
   <!-- ── HERO ── -->
   <section id="hero">
     <img src="images/hero.jpg" alt="" class="hero-bg-photo" aria-hidden="true">
+    <div class="hero-bg-overlay" aria-hidden="true"></div>
     <div class="hero-letter" aria-hidden="true">H</div>
     <div class="hero-content">
       <div class="hero-badge">Autoservis Praha 15</div>
